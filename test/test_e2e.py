@@ -5,6 +5,7 @@
 
 import os
 import sys
+import pdb
 import re
 import time
 import collections
@@ -65,7 +66,7 @@ def compare_detection(data_file, cfg_file, weights_file, im_file, ref_file,
             im_file, '--weights', weights_file]
 
     try:
-        cproc = subprocess.run(args, capture_output=True, check=True)
+        cproc = subprocess.run(args, stdout=subprocess.PIPE, check=True)
     except subprocess.CalledProcessError as err:
         assert False, err.stderr
 
@@ -95,7 +96,7 @@ def compare_loss(data_file, cfg_file, weights_file, ref_file,
             '--once']
 
     try:
-        cproc = subprocess.run(args, capture_output=True, check=True)
+        cproc = subprocess.run(args, stdout=subprocess.PIPE, check=True)
     except subprocess.CalledProcessError as err:
         assert False, err.stderr
 
