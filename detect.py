@@ -6,10 +6,6 @@ import argparse
 
 import numpy as np
 import torch
-import visdom
-import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
 from torchvision import transforms
 from torchvision.transforms import functional as F
 import cv2
@@ -41,6 +37,7 @@ cuda = not args.no_cuda and torch.cuda.is_available()
 device = torch.device('cuda' if cuda else 'cpu')
 
 if args.visdom == True:
+    import visdom
     viz = visdom.Visdom()
 
 categories = parse_categories(parse_data(args.data)['names'])
@@ -80,6 +77,10 @@ with torch.no_grad():
     image = draw_detections_opencv(im, detections[0], categories)
 
     if args.visdom == True:
+        import matplotlib
+        matplotlib.use('Agg')
+        import matplotlib.pyplot as plt
+
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         plt.imshow(image)
         viz.matplot(plt)
