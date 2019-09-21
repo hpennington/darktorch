@@ -6,6 +6,8 @@
 
 ###### Good luck!
 
+##### Supports  YOLOv2 with YOLOv3 support coming soon!
+
 ## Setup
 Use conda for easiest setup
 
@@ -23,6 +25,49 @@ Optional packages:
 - visdom
 - matplotlib
 - pytest
+
+## Training
+
+###Training on VOC
+```
+# Downloads VOC dataset
+cd data
+cp ../scripts/get_voc_dataset.sh ./
+bash get_voc_dataset.sh
+
+# Label VOC dataset
+cp ../../scripts/voc_label.py
+python3 voc_label.py
+cd ../..
+
+python3 train.py
+
+```
+###Training on COCO
+```
+# Downloads VOC dataset
+cd data
+cp ../scripts/get_coco_dataset.sh ./
+bash get_coco_dataset.sh
+
+cd ..
+
+python3 train.py --cfg=cfg/yolov2-coco.cfg --weights=weights/darknet53.conv.74
+
+```
+
+### Training arguments
+
+- --no-cuda
+- --num-workers
+- --clipping-norm
+- --cfg
+- --data
+- --weights
+- --no-shuffle
+- --non-random
+- --fintune
+- --once
 
 ## Running the test suite
 ### Download both the COCO and VOC datasets
