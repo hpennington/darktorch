@@ -53,7 +53,7 @@ bash get_coco_dataset.sh
 
 cd ..
 
-python3 train.py --cfg=cfg/yolov2-coco.cfg --weights=weights/darknet53.conv.74
+python3 train.py --cfg=cfg/yolov2-coco.cfg --weights=weights/darknet19_448.conv.23
 
 ```
 
