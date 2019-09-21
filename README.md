@@ -29,7 +29,7 @@ Optional packages:
 
 ## Training
 
-###Training on VOC
+### Training on VOC
 ```
 # Downloads VOC dataset
 cd data
@@ -44,7 +44,7 @@ cd ../..
 python3 train.py
 
 ```
-###Training on COCO
+### Training on COCO
 ```
 # Downloads VOC dataset
 cd data
