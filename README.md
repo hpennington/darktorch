@@ -31,7 +31,7 @@ Optional packages:
 
 ### Training on VOC
 ```
-# Downloads VOC dataset
+# Download VOC dataset
 cd data
 cp ../scripts/get_voc_dataset.sh ./
 bash get_voc_dataset.sh
@@ -46,7 +46,7 @@ python3 train.py
 ```
 ### Training on COCO
 ```
-# Downloads VOC dataset
+# Download COCO dataset
 cd data
 cp ../scripts/get_coco_dataset.sh ./
 bash get_coco_dataset.sh
