@@ -13,6 +13,7 @@ Use conda for easiest setup
 
 ```
 conda env create -f environment.yml
+conda activate darktorch
 ```
 Required packages if not using conda:
 
