@@ -1,5 +1,7 @@
 # DarkTorch
 
+![alt text](https://github.com/hpennington/darktorch/raw/master/driving-detections.jpg "Downtown car predictions")
+
 ###### Designed as a drop in replacement for the YOLO Darknet framework written in idiomatic PyTorch.
 
 ###### This project was written both as a learning experience and to make hacking on YOLO easier than the alternative C framework.
