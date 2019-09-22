@@ -1,6 +1,6 @@
-# DarkTorch
-
 ![alt text](https://github.com/hpennington/darktorch/raw/master/abbey.jpg "The Beatles Abbey Road")
+
+# DarkTorch
 
 ###### Designed as a drop in replacement for the YOLO Darknet framework written in idiomatic PyTorch.
 
