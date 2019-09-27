@@ -29,6 +29,24 @@ Optional packages:
 - matplotlib
 - pytest
 
+## Detection
+### Detection with COCO
+```
+# Download weights
+wget https://pjreddie.com/media/files/yolov3.weights
+
+# Run detect script
+python3 detect.py --weights=yolov3.weights --cfg=cfg/yolov3.cfg --image=data/dog.jpg
+```
+### Detection with VOC
+```
+# Downloads weights
+wget https://pjreddie.com/media/files/yolov2-voc.weights
+
+# Run detect script
+python3 detect.py --weights=yolov2-voc.weights --cfg=cfg/yolov2-voc.cfg --image=data/dog.jpg
+```
+
 ## Training
 
 ### Training on VOC
