@@ -22,7 +22,7 @@ from darktorch.utils import nonmax_suppression, calculate_detections
 from darktorch.utils import draw_detections, draw_detections_opencv
 from darktorch.utils import parse_categories, parse_data
 from darktorch.utils import write_tensor, read_tensor
-from darktorch.transforms import LetterboxDetect, BGR2RGB, Resize
+from darktorch.transforms import LetterboxDetect, BGR2RGB
 
 
 def parse_args():
@@ -132,4 +132,5 @@ def main():
         cap.release()
         cv2.destroyAllWindows()
 
-main()
+if __name__ == '__main__':
+    main()
