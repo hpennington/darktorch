@@ -41,10 +41,10 @@ python3 detect.py --weights=yolov2.weights --cfg=cfg/yolov2.cfg --image=data/dog
 ### Detection with VOC
 ```
 # Downloads weights
-wget https://pjreddie.com/media/files/yolov2-voc.weights
+wget https://pjreddie.com/media/files/yolov3-voc.weights
 
 # Or for CPU use VOC-TINY
-wget https://pjreddie.com/media/files/yolov2-voc-tiny.weights
+wget https://pjreddie.com/media/files/yolov3-tiny.weights
 
 # Webcam demo
 
