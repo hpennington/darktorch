@@ -8,4 +8,5 @@ dependencies:
   - pip:
     - opencv-python
     - tensorboardx
+    - matplotlib
 
