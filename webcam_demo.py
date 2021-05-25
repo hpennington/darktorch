@@ -29,8 +29,8 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--no-cuda', action='store_true', default=False)
     parser.add_argument(
-        '--weights', type=str, default='weights/yolov2-voc.weights')
-    parser.add_argument('--cfg', type=str, default='cfg/yolov2-voc.cfg')
+        '--weights', type=str, default='weights/yolov2-tiny-voc.weights')
+    parser.add_argument('--cfg', type=str, default='cfg/yolov2-tiny-voc.cfg')
     parser.add_argument('--data', type=str, default='cfg/voc.data')
     args = parser.parse_args()
     return args
@@ -57,18 +57,14 @@ def detect(frame_queue, preds_queue, lock, args):
     with torch.no_grad():
         while(True):
             lock.acquire()
-            print('lock acquired')
             if not frame_queue.empty():
-                print('here')
                 frame = frame_queue.get()
                 lock.release()
-                print('lock released')
                 data = transform(frame)
                 data.unsqueeze_(0)
-                #data = data.to(device)            
+                data = data.to(device)            
             
                 t0 = time.time()
-                print('pre model') 
                 output = model(data)
                 t1 = time.time()
                 print('Forward pass:', t1 - t0)
@@ -85,7 +81,6 @@ def detect(frame_queue, preds_queue, lock, args):
 
                 preds_queue.put(detections)
             else:
-                print('there')
                 lock.release()
             
 
@@ -107,21 +102,17 @@ def main():
         while(True):
             ret, frame = cap.read()
             frame_lock.acquire()
-            #print('frame_lock acquired')
             while not frame_queue.empty():
                 frame_queue.get()
 
             frame_queue.put(frame)
             frame_lock.release()
-            #print('frame_lock released')
 
             if not preds_queue.empty():
                 cur_dets = preds_queue.get()
 
             if cur_dets is not None and len(cur_dets) > 0:
-                print(cur_dets)
                 frame = draw_detections_opencv(frame, cur_dets[0], categories)
-                #cur_dets = None
 
             cv2.imshow('frame', frame)
             cv2.waitKey(1)

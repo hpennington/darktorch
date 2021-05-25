@@ -33,15 +33,28 @@ Optional packages:
 ### Detection with COCO
 ```
 # Download weights
-wget https://pjreddie.com/media/files/yolov3.weights
+wget https://pjreddie.com/media/files/yolov2.weights
 
 # Run detect script
-python3 detect.py --weights=yolov3.weights --cfg=cfg/yolov3.cfg --image=data/dog.jpg
+python3 detect.py --weights=yolov2.weights --cfg=cfg/yolov2.cfg --image=data/dog.jpg
 ```
 ### Detection with VOC
 ```
 # Downloads weights
 wget https://pjreddie.com/media/files/yolov2-voc.weights
+
+# Or for CPU use VOC-TINY
+wget https://pjreddie.com/media/files/yolov2-voc-tiny.weights
+
+# Webcam demo
+
+## CPU
+python3 webcam_demo.py --no-cuda
+
+## IF you have Nvidia CUDA
+python3 webcam_demo.py
+
+
 
 # Run detect script
 python3 detect.py --weights=yolov2-voc.weights --cfg=cfg/yolov2-voc.cfg --image=data/dog.jpg
