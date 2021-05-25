@@ -29,7 +29,7 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--no-cuda', action='store_true', default=False)
     parser.add_argument(
-        '--weights', type=str, default='weights/yolov3-tiny.weights')
+        '--weights', type=str, default='yolov3-tiny.weights')
     parser.add_argument('--cfg', type=str, default='cfg/yolov3-tiny.cfg')
     parser.add_argument('--data', type=str, default='cfg/voc.data')
     args = parser.parse_args()
